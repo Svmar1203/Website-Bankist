@@ -78,4 +78,17 @@ const logo = document.getElementById('logo');
 
 console.log(logo.alt);
 console.log(logo.src);
+console.log(logo.getAttribute('src'));
 console.log(logo.getAttribute('designer'));
+logo.setAttribute('company', 'Bankist');
+
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href);
+console.log(link.getAttribute('href'));
+console.log(logo.dataset.versionNumber);
+
+// Classes
+logo.classList.add('c', 'p');
+logo.classList.remove('c', 'p');
+logo.classList.toggle();
+logo.classList.contains();
