@@ -90,5 +90,33 @@ console.log(logo.dataset.versionNumber);
 // Classes
 logo.classList.add('c', 'p');
 logo.classList.remove('c', 'p');
-logo.classList.toggle();
-logo.classList.contains();
+//logo.classList.toggle();
+//logo.classList.contains();
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+  console.log(e.target.getBoundingClientRect());
+  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+  console.log(
+    'height/width',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  // Scroling
+  //window.scrollTo(
+  //s1coords.left + window.pageXOffset,
+  //s1coords.top + window.pageYOffset
+  //);
+
+  // Old school
+  window.scrollTo({
+    legft: s1coords.left + window.pageXOffset,
+    top: s1coords.top + window.pageYOffset,
+    behavior: 'smooth',
+  });
+});
