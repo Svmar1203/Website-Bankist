@@ -113,10 +113,31 @@ btnScrollTo.addEventListener('click', function (e) {
   //s1coords.top + window.pageYOffset
   //);
 
+  /*
   // Old school
   window.scrollTo({
     legft: s1coords.left + window.pageXOffset,
     top: s1coords.top + window.pageYOffset,
     behavior: 'smooth',
   });
+*/
+
+  section1.scrollIntoView({ behavior: 'smooth' });
 });
+
+const h1 = document.querySelector('h1');
+
+const alertH1 = function (e) {
+  alert('Hello!!!!');
+
+  //h1.removeEventListener('mouseenter', alertH1);
+};
+
+h1.addEventListener('mouseenter', alertH1);
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 2000);
+
+/*
+h1.onmouseenter = function (e) {
+  alert('This is EventLisstener');
+};
+*/
