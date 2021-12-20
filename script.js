@@ -85,7 +85,16 @@ document.querySelectorAll('.nav__link').forEach(function (el) {
 // 2. Determine what element originated the event
 
 document.querySelector('.nav__links').addEventListener('click', function (e) {
-  console.log(e.target);
+  e.preventDefault();
+
+  // Matching strategy
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    console.log(id);
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
 });
 
 /////////////////////////////////////////////////////////
@@ -242,3 +251,16 @@ document.querySelector('.nav').addEventListener(
   true
 );
 */
+
+const h1 = document.querySelector('h1');
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes);
+console.log(h1.children);
+h1.firstElementChild.style.color = 'blue';
+h1.lastElementChild.style.color = 'blue';
+
+// Going upwards: parents
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+h1.closest('.header').style.background = 'var(--gradient-secondary)';
