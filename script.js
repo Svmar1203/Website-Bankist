@@ -105,8 +105,18 @@ const tabsContent = document.querySelector('.operations__content');
 // tabs.forEach(t => t.addEventListener('click', () => console.log('TAB')));
 
 tabsContainer.addEventListener('click', function (e) {
-  const clicked = e.target;
+  const clicked = e.target.closest('.operations__tab');
   console.log(clicked);
+
+  // Guerd clause
+  if (!clicked) return;
+
+  tabs.forEach(t => t.classList.remove);
+
+  clicked.classList.add('operations__tab--active');
+
+  // Activate content area
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add();
 });
 
 /////////////////////////////////////////////////////////
@@ -264,6 +274,7 @@ document.querySelector('.nav').addEventListener(
 );
 */
 
+/*
 const h1 = document.querySelector('h1');
 console.log(h1.querySelectorAll('.highlight'));
 console.log(h1.childNodes);
@@ -288,3 +299,4 @@ console.log(
     if (el !== h1) el.style.transform = 'scale(0.8))';
   })
 );
+*/
