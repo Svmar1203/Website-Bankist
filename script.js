@@ -97,6 +97,18 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
+// Tabbed component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelector('.operations__content');
+
+// tabs.forEach(t => t.addEventListener('click', () => console.log('TAB')));
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target;
+  console.log(clicked);
+});
+
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
@@ -264,3 +276,15 @@ console.log(h1.parentNode);
 console.log(h1.parentElement);
 
 h1.closest('.header').style.background = 'var(--gradient-secondary)';
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+console.log(h1.parentElement.children);
+
+console.log(
+  [...h1.parentElement.children].forEach(function (el) {
+    if (el !== h1) el.style.transform = 'scale(0.8))';
+  })
+);
