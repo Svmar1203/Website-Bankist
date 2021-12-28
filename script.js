@@ -125,31 +125,24 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 // Menu fade animation
-nav.addEventListener('mouseover', function (e) {
+const handleHover = function (e) {
+  //console.log(this, e.currentTarget);
   if (e.target.classList.contains('nav__link')) {
     const link = e.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
     const logo = link.closest('.nav').querySelector('img');
 
     siblings.forEach(el => {
-      if (el !== link) el.style.opasity = 0.3;
+      if (el !== link) el.style.opasity = this;
     });
-    logo.style.opasity = 0.3;
+    logo.style.opasity = this;
   }
-});
+};
 
-nav.addEventListener('mouseout', function (e) {
-  if (e.target.classList.contains('nav__link')) {
-    const link = e.target;
-    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
-    const logo = link.closest('.nav').querySelector('img');
+// Passing "argument" into handler
+nav.addEventListener('mouseover', handleHover.bind(0.5));
 
-    siblings.forEach(el => {
-      if (el !== link) el.style.opasity = 1;
-    });
-    logo.style.opasity = 1;
-  }
-});
+nav.addEventListener('mouseout', handleHover.bind(1));
 
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
