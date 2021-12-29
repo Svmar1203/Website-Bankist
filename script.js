@@ -38,6 +38,7 @@ document.addEventListener('keydown', function (e) {
 
 /////////////////////////////////////////////
 // Button scroling
+
 btnScrollTo.addEventListener('click', function (e) {
   const s1coords = section1.getBoundingClientRect();
   console.log(s1coords);
@@ -67,7 +68,7 @@ btnScrollTo.addEventListener('click', function (e) {
 */
 ///////////////////////////////////////////////////////////
 
-section1.scrollIntoView({ behavior: 'smooth' });
+//section1.scrollIntoView({ behavior: 'smooth' });
 
 // Page navigation
 ///////////////////////////////
@@ -143,6 +144,13 @@ const handleHover = function (e) {
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 
 nav.addEventListener('mouseout', handleHover.bind(1));
+
+// Sticky navigation
+const initialCoords = section1.getBoundingClientRect();
+console.log(initialCoords);
+window.addEventListener('scroll', function () {
+  console.log(window.scrollY);
+});
 
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
